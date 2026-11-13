@@ -11,8 +11,7 @@
 
 ### System diagram
 
-```text
-(AnalogStick.x, AnalogStick.y) → conversion to polar coordinates, angle theta → round theta to the nearest multiple of pi/4 = theta' → output 2pi/theta'```
+```(AnalogStick.x, AnalogStick.y) → conversion to polar coordinates, angle theta → round theta to the nearest multiple of pi/4 = theta' → output 2pi/theta'```
 
 ### Inputs and outputs
 
