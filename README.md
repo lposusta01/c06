@@ -1,44 +1,33 @@
 # Sense and Respond
 
-> **Remove the instructions in block quotes before you submit.**
-
-> Design, build, program, and test a system built using an Arduino that senses changes in a physical environment and responds automatically. Complete this README as you work. Keep your planning, testing evidence, and link to your video demo here.
-
 ## 1. System purpose
 
-- **Problem and real-world context:** TODO
-- **Intended user:** TODO
-- **What physical condition should your system monitor?** TODO
-- **How will the system's response help the user?** TODO
-
+- **Problem and real-world context:** Fighting game input notation is obtuse and often a turn-off for newcomers.
+- **Intended user:** People in the fighting game community, especially new players.
+- **What physical condition should your system monitor?** The direction of the analog stick.
+- **How will the system's response help the user?** By allowing them to practice the notation corresponding to common inputs
+  
 ## 2. System design
 
 ### System diagram
 
-> Replace the TODOs with your own system details. Show what each sensor measures, how the Arduino uses the readings to choose a state, and how the LCD and additional output respond.
-
 ```text
-Inputs (TODO) → Processing (TODO) → Outputs (TODO)
-```
+(AnalogStick.x, AnalogStick.y) → conversion to polar coordinates, angle theta → round theta to the nearest multiple of pi/4 = theta' → output 2pi/theta'```
 
 ### Inputs and outputs
 
-> Identify each sensor and output device. Add rows for additional devices.
-
 | Device | Input or output | Arduino pin(s) | Analog or digital?  |
 | --- | --- | --- | --- |
-| TODO | Sensor input | TODO | TODO |
-| LCD | Output | TODO | TODO |
-| TODO | Additional output | TODO | TODO |
+| Analog Stick | Sensor input | A0, A1 | Analog |
+| LCD | Output | 3, 5, 8-11 | Digital |
+| LED | Additional output | 12, 13 | Digital |
 
 ### Decision table
 
-> Plan at least two meaningful states that produce different responses based on sensor readings. Record the reading or condition that triggers each state. Record what sensor data the LCD displays and what the additional output (make sure to rename this to whatever the input is) does in each state.
-
 | Sensor reading or condition | System state | LCD display | Additional output |
 | --- | --- | --- | --- |
-| TODO | TODO | TODO | TODO |
-| TODO | TODO | TODO | TODO |
+| (0, 0) | Neutral | 5 - NEUTRAL | LED on |
+| (-1, 0) | Left | 4 - LEFT | LED off |
 
 ### Libraries
 
@@ -46,7 +35,8 @@ Inputs (TODO) → Processing (TODO) → Outputs (TODO)
 
 | Library | What it does in your program |
 | --- | --- |
-| TODO | TODO |
+| cstdio | C Standard Library functions |
+| LiquidCrystal | LCD control |
 
 ## 3. Circuit design
 
